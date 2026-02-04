@@ -1,0 +1,100 @@
+@import url("https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  list-style: none;
+}
+:root {
+  --main-color:rgb(12, 36, 65);
+  --shadow-color: rgba(0, 0, 0, 0.5);
+}
+body {
+  max-width: 100svw;
+  height: 100vh;
+  font-family: "Indie Flower", cursive;
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  grid-template-rows: 70px 1fr 70px;
+  grid-template-areas:
+    "header header"
+    "aside main"
+    "aside footer";
+}
+header {
+  background-color: var(--main-color);
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  grid-area: header;
+}
+header .nav {
+  display: flex;
+  gap: 20px;
+}
+.nav li a {
+  color: white;
+  font-size: 17px;
+  font-weight: 600;
+}
+aside {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  gap: 20px;
+  background-color: lightblue;
+  padding: 20px;
+  font-size: 17px;
+  letter-spacing: 1px;
+  grid-area: aside;
+}
+footer {
+  background-color: var(--main-color);
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  grid-area: footer;
+}
+main h2 {
+  padding: 20px;
+}
+main .images {
+  padding: 20px;
+  grid-area: main;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 20px;
+}
+.images .image {
+  border-radius: 10px;
+}
+.images .image:hover {
+  transform: rotate(2deg);
+  box-shadow: 0 0 10px var(--shadow-color);
+}
+.image img {
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+}
+
+@media (max-width: 768px) {
+  body {
+    grid-template-columns: 1fr;
+    grid-template-rows: 100px 1fr 70px;
+    grid-template-areas:
+      "header"
+      "main"
+      "footer";
+  }
+  header {
+    flex-direction: column;
+  }
+  aside {
+    display: none;
+  }
+}
